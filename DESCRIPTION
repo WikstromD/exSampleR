@@ -1,0 +1,29 @@
+Package: exSampleR
+Title: Normal Simulation Guessing Game
+Version: 0.0.1
+Authors@R: 
+    person("Daniel", "Wikstrom", , "danwikstrom@gwu.edu", role = c("aut", "cre"))
+Description: An interactive, educational Shiny app where users identify real data among
+    simulated normal samples.
+License: MIT + file LICENSE
+Depends: 
+    R (>= 3.5.0)
+Imports:
+    ggplot2,
+    glue,
+    patchwork,
+    purrr,
+    qqplotr,
+    shiny,
+    sn,
+    stats
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: false
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
