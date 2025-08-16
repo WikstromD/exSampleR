@@ -27,5 +27,5 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
-URL: https://github.com/WikstromD/exSampleR
+URL: https://github.com/WikstromD/exSampleR, https://wikstromd.github.io/exSampleR/
 BugReports: https://github.com/WikstromD/exSampleR/issues
