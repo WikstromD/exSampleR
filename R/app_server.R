@@ -188,11 +188,11 @@ observeEvent(selected_data(), {
 <div style='font-size:120%;'>
   <p></p>
   <p><b>Detrended QQ plots</b> display the difference (observed minus theoretical quantiles) on the y-axis so you can see exactly how far each point is from a normal distribution.</p>
-  <p>If your data are normal, you'll see a random scatter around zero (the reference line).</p>
+  <p>If data are normally distributed, points randomly scatter around zero (the reference line).</p>
   <p>A U-shape (high at both ends, low in the middle) signals positive kurtosis (heavy tails).</p>
   <p>An upside-down U (high in the middle, low at the ends) signals negative kurtosis (light tails).</p>
   <p>A gradual tilt (up on one side, down on the other) flags skewness:</p>
-  <p>if the left side is above and the right below, data are right-skewed; the opposite pattern means left-skewed.</p>
+  <p>if the left side is above and the right below, data are right-skewed; the opposite pattern indicates left-skew.</p>
 </div>
 "),
       
@@ -201,11 +201,11 @@ observeEvent(selected_data(), {
 <div style='font-size:120%;'>
   <p></p>
   <p><b>PP plots</b> compare the proportion of your data below each value (empirical CDF) to the proportion you'd expect under a bell curve (theoretical CDF).</p>
-  <p>When data are normal, points lie near the diagonal reference line.</p>
-  <p>Points above the line in the lower range-more small values than expected.</p>
-  <p>Points below the line in the upper range-more large values than expected.</p>
-  <p>A smooth bend up or down-skewness.</p>
-  <p>A pronounced bow shape-differences in tail thickness (kurtosis).</p>
+  <p>When data are normally distributed, points lie near the diagonal reference line.</p>
+  <p>Points above the line in the lower range indicate more small values than expected.</p>
+  <p>Points below the line in the upper range indicate more large values than expected.</p>
+  <p>A smooth bend up indicates right skewness and a bend down indicates left skewness.</p>
+  <p>A bow from above the line near 0 to below near 1 = positive (heavy tails); the opposite bow = negative (light tails).</p>
 </div>
 "),
       
