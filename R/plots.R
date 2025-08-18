@@ -10,7 +10,6 @@
 #' @param xlim Optional numeric length-2 vector for x-axis limits
 #' @param ylim Optional numeric length-2 vector for y-axis limits
 #' @return A ggplot object
-#' @export
 #'
 #' @importFrom ggplot2 ggplot aes geom_histogram geom_density stat_function theme_light theme scale_fill_identity element_blank element_text coord_cartesian
 #' @importFrom qqplotr stat_qq_line stat_qq_band stat_qq_point stat_pp_line stat_pp_band stat_pp_point

@@ -1,4 +1,4 @@
-Package: exSampleR
+Package: exsampler
 Title: Normal Simulation Guessing Game
 Version: 0.0.1
 Authors@R: 
@@ -27,5 +27,5 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
-URL: https://github.com/WikstromD/exSampleR, https://wikstromd.github.io/exSampleR/
-BugReports: https://github.com/WikstromD/exSampleR/issues
+URL: https://github.com/WikstromD/exsampler
+BugReports: https://github.com/WikstromD/exsampler/issues

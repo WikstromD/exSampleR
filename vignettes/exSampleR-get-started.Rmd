@@ -1,19 +1,61 @@
 ---
-title: "exSampleR-get-started"
+title: "Get started with exsampler"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{exSampleR-get-started}
+  %\VignetteIndexEntry{Get started with exsampler}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+```{r, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
-```{r setup}
-library(exSampleR)
+# exsampler: Interactive normality visual inspector
+
+#### **Daniel Wikstrom**
+
+2025-08-17
+
+## Overview
+
+This page provides an overview of the **exsampler** package.
+
+**exsampler** is a tool to assist visual inspection of (non)normality. It displays a 3×3 grids of either histograms, QQ plots, detrended QQ plots, or PP Plots where one randomly assigned plot contains the real data and the seven other plots contain simulated normal samples (Shapiro–Wilk *p*'s ≤ 0.05) with the same number of observations*,* mean, and standard deviation (and optionally, the same rounding). Plots with simulated normal data help calibrate the user's eyes for visually inspecting the distribution of their data. Selecting a plot reveals the location of the real data.
+
+Users can choose to view plots from an example dataset with labeled distributions, or use with their own data already loaded in their global environment.
+
+## Installation
+
+> **Note:** Replace the CRAN line when you publish.
+
+``` r
+# install.packages("exsampler")  # when on CRAN
+# Development version from GitHub:
+# remotes::install_github("wikstromd/exsampler")
 ```
+
+## Shiny app
+
+```{r, eval = interactive()}
+exsampler::run_app()
+```
+
+## What you’ll see
+
+When you choose a variable and generate plots, the app displays a **3×3** **grid of panels**. One panel contains the real data; the rest are simulated normal distributions (Shapiro Wilk *p* \< 0.05) with the same number of observations, mean, and standard deviation.
+
+-   **Histogram** – binned frequencies with density and normal curves using.
+-   **QQ plot** – compares sample quantiles to a normal reference line using `qqplotr`.
+-   **Detrended QQ plot** – compare quantiles' deviation from what's expected from a normal distribution using `qqplotr`.
+-   **PP plot** – plots the proportion of observations at or below each value against the proportion predicted by a normal model using `qqplotr`.
+
+Click **Generate Plots** to create a fresh grid of simulations. The sidebar lets you choose the variable, plot type, and whether to match simulated data **granularity** (useful for integer‑like scales).
+
+### Confidence bands
+
+Optional 95% confidence bands can be added to both types of QQ plots and PP plots. By default, **no bands** are shown. Selecting multiple confidence bands increases computing time. The following confidence bands are displayed using `qqplotr.`
+
+-   **QQ and detrended QQ plots:** Pointwise, Bootstrap, Tail‑Sensitive (TS), and/or Kolmogorov–Smirnov (KS).
+
+-   **PP plots:** Pointwise only

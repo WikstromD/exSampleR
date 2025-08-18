@@ -1,12 +1,10 @@
-#' Server Logic for exSampleR Shiny App
+#' Server Logic for exsampler Shiny App
 #'
-#' This defines the server-side logic for the exSampleR Shiny app.
+#' This defines the server-side logic for the exsampler Shiny app.
 #'
 #' @param input Shiny input object
 #' @param output Shiny output object
 #' @param session Shiny session object
-#'
-#' @export
 #'
 #' @import shiny
 #' @importFrom purrr map set_names
@@ -83,7 +81,7 @@ app_server <- function(input, output, session) {
   
   selected_data <- reactive({
   req(input$dataset_name)
-  pkg <- "exSampleR"
+  pkg <- "exsampler"
   # 1) Internal/namespace (for internal data)
   if (exists(input$dataset_name, envir = asNamespace(pkg), inherits = FALSE)) {
     get(input$dataset_name, envir = asNamespace(pkg), inherits = FALSE)
@@ -174,12 +172,12 @@ observeEvent(selected_data(), {
       qq_normal = HTML("
 <div style='font-size:120%;'>
   <p></p>
-  <p><b>QQ plots</b> compare observed quantiles (dots) to those of a normal distribution (reference line) to assess normality.</p>
+  <p><b>QQ plots</b> compare the proportion of your data below each value (empirical CDF) to the proportion you'd expect under a bell curve (theoretical CDF).</p>
   <p>When the data are normally distributed, points fall close to the line, with small random variation.</p>
-  <p>An S-shaped curve (above the line on the left and below on the right) means right-skewed data.</p>
-  <p>The reverse S (above the line on the right and below on the left) means left-skewed data.</p>
-  <p>Points fanning out at both ends indicate positive kurtosis (heavy tails).</p>
-  <p>Points pinching in near the center indicate negative kurtosis (light tails).</p>
+  <p>An inverted-U-shaped curve, with points near the reference line in the center and below it at the tails, indicates right-skewed data.</p>
+  <p>A U-shaped curve, with points resting near the reference line in the center and above it at the tails, indicates left-skewed data.</p>
+  <p>Positive kurtosis (heavy tails) is indicated when points appear below the reference line on the left and above it on the right.</p>
+  <p>Negative kurtosis (light tails) is indicated when points appear above the reference line on the left and  below it on the right.</p>
 </div>
 "),
       
@@ -187,38 +185,38 @@ observeEvent(selected_data(), {
       qq_detrended = HTML("
 <div style='font-size:120%;'>
   <p></p>
-  <p><b>Detrended QQ plots</b> display the difference (observed minus theoretical quantiles) on the y-axis so you can see exactly how far each point is from a normal distribution.</p>
-  <p>If data are normally distributed, points randomly scatter around zero (the reference line).</p>
-  <p>A U-shape (high at both ends, low in the middle) signals positive kurtosis (heavy tails).</p>
-  <p>An upside-down U (high in the middle, low at the ends) signals negative kurtosis (light tails).</p>
-  <p>A gradual tilt (up on one side, down on the other) flags skewness:</p>
-  <p>if the left side is above and the right below, data are right-skewed; the opposite pattern indicates left-skew.</p>
+  <p><b>Detrended QQ plots</b> compare observed quantiles (dots) to normal quantiles by plotting their vertical differences (observed - theoretical) against the normal quantiles.</p>
+  <p>When the data are normally distributed, points fall close to the horizontal reference line at zero, with small random variation.</p>
+  <p>A U-shaped curve, with points near the reference line in the center and above it at the tails, indicates right-skewed data.</p>
+  <p>An inverted-U-shaped curve, with points near the reference line in the center and below it at the tails, indicates left-skewed data.</p>
+  <p>Positive kurtosis (heavy tails) is indicated by an S-shaped curve, with points above the line in the left tail and below it in the right tail.</p>
+  <p>Negative kurtosis (light tails) is indicated by an inverted S-shaped curve, with points below the line in the left tail and above it in the right tail.</p>
 </div>
 "),
       
       # PP Plot
       pp_plot = HTML("
 <div style='font-size:120%;'>
-  <p></p>
-  <p><b>PP plots</b> compare the proportion of your data below each value (empirical CDF) to the proportion you'd expect under a bell curve (theoretical CDF).</p>
-  <p>When data are normally distributed, points lie near the diagonal reference line.</p>
-  <p>Points above the line in the lower range indicate more small values than expected.</p>
-  <p>Points below the line in the upper range indicate more large values than expected.</p>
-  <p>A smooth bend up indicates right skewness and a bend down indicates left skewness.</p>
-  <p>A bow from above the line near 0 to below near 1 = positive (heavy tails); the opposite bow = negative (light tails).</p>
-</div>
+  <p><b>PP plots</b> compare your empirical CDF (proportion <= x) with the normal CDF.</p>
+  <p>If the data are approximately normal, points track the diagonal reference line.</p>
+  <p>Right-skew produces an inverted-U shape: points lie near the line in the center and below it at the tails.</p>
+  <p>Left-skew produces a U shape: points lie near the line in the center and above it at the tails.</p>
+  <p>Positive kurtosis (heavy tails) produces an inverted S-shape: points lie above the line on the left and below it on the right.</p>
+  <p>Negative kurtosis (light tails) produces an S-shape: points lie below the line on the left and above it on the right.</p></div>
 "),
+      
       
       # Histogram
       histogram = HTML("
 <div style='font-size:120%;'>
   <p></p>
   <p><b>Histogram</b> shows how often values fall into each bin, with two overlays:</p>
-  <p>- A smooth curve (kernel density estimate) tracing your data's shape.</p>
+  <p>- A dotted curve (kernel density estimate) tracing your data's shape.</p>
   <p>- A solid bell curve (normal density) showing how a normal distribution would look.</p>
-  <p>Bins that pile up on one side or the density curve leans left or right, indicate the data are skewed.</p>
-  <p>Tail regions that extend farther and rise higher than a normal curve,indicate positive kurtosis.</p>
-  <p>A density curve that has a flatter central peak and shorter, thinner tails, indicates negative kurtosis.</p>
+  <p>Right-skew (positive skewness) produces a long right tail: bars and the density peak left of center.</p>
+  <p>Left-skew (negative skewness) produces a long left tail: bars and the density peak right of center.</p>
+  <p>Positive kurtosis (heavy tails) produces plots with a higher central peak and higher-density tails.</p>
+  <p>Negative kurtosis (light tails) produces plots with a flatter central peak and shorter, thinner tails.</p>
 </div>
 
 </div>

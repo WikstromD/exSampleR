@@ -10,5 +10,5 @@ run_app()
 Runs the Shiny app.
 }
 \description{
-This function launches the exSampleR interactive Shiny app.
+This function launches the exsampler interactive Shiny app.
 }

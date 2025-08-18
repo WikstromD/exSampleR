@@ -6,3 +6,11 @@
 ^docs$
 ^pkgdown$
 ^\.github$
+^vignettes/.*\.html$
+^vignettes/.*\.pdf$
+^vignettes/.*\.knit\.md$
+^vignettes/.*\.utf8\.md$
+^doc$
+^Meta$
+^README\.Rmd$
+^index\.md$

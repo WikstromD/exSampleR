@@ -2,7 +2,6 @@
 #'
 #' @param x A numeric vector
 #' @return A numeric vector scaled to 1–10
-#' @export
 scale_to_1_10 <- function(x) {
   scaled <- 1 + 9 * (x - min(x)) / (max(x) - min(x))
   round(scaled, 2)
@@ -13,7 +12,6 @@ scale_to_1_10 <- function(x) {
 #' Zero/non-finite range returns all zeros.
 #' @param x Numeric vector.
 #' @return Numeric vector of same length, scaled to `0–10`.
-#' @export
 scale_to_0_10 <- function(x) {
   rng <- range(x, na.rm = TRUE)
   if (!is.finite(diff(rng)) || diff(rng) == 0) return(rep(0, length(x)))
@@ -30,7 +28,6 @@ scale_to_0_10 <- function(x) {
 #'
 #' @param x A numeric vector
 #' @return A common increment value
-#' @export
 estimate_data_increment <- function(x) {
   x <- as.numeric(na.omit(x))
   if (length(x) < 2) return(1)
@@ -55,19 +52,19 @@ estimate_data_increment <- function(x) {
 
 #' Generate a grid of simulated datasets matching a real variable
 #'
-#' Simulate `n - 1` additional samples from a normal distribution with the
+#' Simulate 7 additional samples from a normal distribution with the
 #' same mean, standard deviation, and (optionally) increment spacing as the
 #' real data, then shuffle them together for a “find the real data” grid.
 #'
 #' Ensures each simulated sample passes a Shapiro–Wilk normality test at
-#' p >= `p_thresh` (defaults to 0.10), up to `max_attempts` retries.
+#' p >= `p_thresh` (defaults to 0.05), up to `max_attempts` retries (default = 50).
 #'
 #' @param data A data.frame containing the real observations.
 #' @param variable_name Character; the name of the numeric column in `data` to simulate from.
 #' @param seed_modifier Integer; seed for `set.seed()`, so each click gives a new shuffle.
-#' @param n Integer; total number of grids (1 real + n - 1 simulated).
+#' @param n Integer; total number of grids (1 real +7).
 #' @param match_increment Logical; if `TRUE`, rounds simulated values to the same increment as the real data (via `estimate_data_increment`).
-#' @param p_thresh Numeric; required Shapiro–Wilk p-value threshold (default 0.10 means “looks normal enough”).
+#' @param p_thresh Numeric; required Shapiro–Wilk p-value threshold (default 0.05).
 #' @param max_attempts Integer; max resimulation attempts per simulated sample (default 50).
 #'
 #' @return A list with elements:
@@ -79,13 +76,12 @@ estimate_data_increment <- function(x) {
 #'
 #' @importFrom purrr map imap set_names
 #' @importFrom stats rnorm shapiro.test
-#' @export
 generate_random_data_for_plot_grid <- function(
     data, variable_name,
     seed_modifier = 1,
     n = 9,
     match_increment = TRUE,
-    p_thresh = 0.10,
+    p_thresh = 0.05,
     max_attempts = 50
 ) {
   x  <- stats::na.omit(data[[variable_name]])

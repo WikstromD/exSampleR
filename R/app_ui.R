@@ -1,6 +1,6 @@
-#’ UI for exSampleR App
+#’ UI for exsampler App
 #’
-#’ This defines the user interface for the exSampleR interactive Shiny application.
+#’ This defines the user interface for the exsampler interactive Shiny application.
 #’
 #’ @return A Shiny UI object
 #’ @export

@@ -1,5 +1,5 @@
 test_that("generate_exsample_distributions is deterministic with a seed", {
-  gen <- try(utils::getFromNamespace("generate_exsample_distributions", "exSampleR"), silent = TRUE)
+  gen <- try(utils::getFromNamespace("generate_exsample_distributions", "exsampler"), silent = TRUE)
   skip_if(inherits(gen, "try-error"), "generator not found")
 
   a <- gen(n = 100, seed = 123)

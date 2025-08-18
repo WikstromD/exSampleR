@@ -10,7 +10,7 @@ generate_random_data_for_plot_grid(
   seed_modifier = 1,
   n = 9,
   match_increment = TRUE,
-  p_thresh = 0.1,
+  p_thresh = 0.05,
   max_attempts = 50
 )
 }
@@ -21,11 +21,11 @@ generate_random_data_for_plot_grid(
 
 \item{seed_modifier}{Integer; seed for \code{set.seed()}, so each click gives a new shuffle.}
 
-\item{n}{Integer; total number of grids (1 real + n - 1 simulated).}
+\item{n}{Integer; total number of grids (1 real +7).}
 
 \item{match_increment}{Logical; if \code{TRUE}, rounds simulated values to the same increment as the real data (via \code{estimate_data_increment}).}
 
-\item{p_thresh}{Numeric; required Shapiro–Wilk p-value threshold (default 0.10 means “looks normal enough”).}
+\item{p_thresh}{Numeric; required Shapiro–Wilk p-value threshold (default 0.05).}
 
 \item{max_attempts}{Integer; max resimulation attempts per simulated sample (default 50).}
 }
@@ -40,11 +40,11 @@ A list with elements:
 }
 }
 \description{
-Simulate \code{n - 1} additional samples from a normal distribution with the
+Simulate 7 additional samples from a normal distribution with the
 same mean, standard deviation, and (optionally) increment spacing as the
 real data, then shuffle them together for a “find the real data” grid.
 }
 \details{
 Ensures each simulated sample passes a Shapiro–Wilk normality test at
-p >= \code{p_thresh} (defaults to 0.10), up to \code{max_attempts} retries.
+p >= \code{p_thresh} (defaults to 0.05), up to \code{max_attempts} retries (default = 50).
 }

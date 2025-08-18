@@ -1,6 +1,6 @@
 test_that("scale_to_* produce bounded outputs", {
-  f01 <- try(utils::getFromNamespace("scale_to_0_10", "exSampleR"), silent = TRUE)
-  f11 <- try(utils::getFromNamespace("scale_to_1_10", "exSampleR"), silent = TRUE)
+  f01 <- try(utils::getFromNamespace("scale_to_0_10", "exsampler"), silent = TRUE)
+  f11 <- try(utils::getFromNamespace("scale_to_1_10", "exsampler"), silent = TRUE)
 
   skip_if(inherits(f01, "try-error") && inherits(f11, "try-error"), "scaling helpers not found")
 

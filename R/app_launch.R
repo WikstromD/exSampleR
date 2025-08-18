@@ -1,6 +1,6 @@
 #' Launch the Shiny App
 #'
-#' This function launches the exSampleR interactive Shiny app.
+#' This function launches the exsampler interactive Shiny app.
 #'
 #' @return Runs the Shiny app.
 #' @export

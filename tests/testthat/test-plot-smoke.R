@@ -1,5 +1,5 @@
 test_that("create_single_plot runs for supported plot types", {
-  make <- try(utils::getFromNamespace("create_single_plot", "exSampleR"), silent = TRUE)
+  make <- try(utils::getFromNamespace("create_single_plot", "exsampler"), silent = TRUE)
   skip_if(inherits(make, "try-error"), "create_single_plot not found or not exported")
 
   df <- data.frame(sample_data = rnorm(50))

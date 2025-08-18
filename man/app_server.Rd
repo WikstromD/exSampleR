@@ -2,7 +2,7 @@
 % Please edit documentation in R/app_server.R
 \name{app_server}
 \alias{app_server}
-\title{Server Logic for exSampleR Shiny App}
+\title{Server Logic for exsampler Shiny App}
 \usage{
 app_server(input, output, session)
 }
@@ -14,5 +14,5 @@ app_server(input, output, session)
 \item{session}{Shiny session object}
 }
 \description{
-This defines the server-side logic for the exSampleR Shiny app.
+This defines the server-side logic for the exsampler Shiny app.
 }

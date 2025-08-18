@@ -1,6 +1,6 @@
 #' exSample_Distributions
 #'
-#' Simulated distributions scaled to 1–10 for the exSampleR demo app.
+#' Simulated distributions scaled to 1–10 for the exsampler demo app.
 #'
 #' @format A data frame with simulated columns:
 #' \describe{
