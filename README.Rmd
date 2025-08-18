@@ -21,7 +21,8 @@ knitr::opts_chunk$set(
 [![test-coverage](https://github.com/WikstromD/exsampler/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/WikstromD/exsampler/actions/workflows/test-coverage.yaml)
 <!-- badges: end -->
 
-The goal of exsampler is to ...
+exsampler is a tool to assist visual inspection of (non)normality. It displays a 3×3 grids of either histograms, QQ plots, detrended QQ plots, or PP Plots where one randomly assigned plot contains the real data and the seven other plots contain simulated normal samples (Shapiro–Wilk p's ≤ 0.05) with the same number of observations, mean, and standard deviation (and optionally, the same rounding). Plots with simulated normal data help calibrate the user's eyes for visually inspecting the distribution of their data. Selecting a plot reveals the location of the real data.
+
 
 ## Installation
 
@@ -29,30 +30,5 @@ You can install the development version of exsampler from [GitHub](https://githu
 
 ``` r
 # install.packages("pak")
-pak::pak("WikstromD/exSampleR")
+pak::pak("WikstromD/exsampler")
 ```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-library(exsampler)
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
