@@ -1,19 +1,4 @@
 url: https://wikstromd.github.io/exsampler/
 template:
   bootstrap: 5
-logo: man/figures/logo.png
 
-home:
-  title: "exsampler"
-  description: "Normal Simulation Guessing Game"
-navbar:
-  structure:
-    left:  [home, reference, articles, news]
-    right: [github]
-  components:
-    home:
-      text: "Home"
-      href: index.html
-    github:
-      icon: fab fa-github
-      href: https://github.com/wikstromd/exsampler
