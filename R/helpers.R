@@ -24,31 +24,51 @@ scale_to_0_10 <- function(x) {
   10 * (x - rng[1]) / diff(rng)
 }
 
-#' Estimate data increment from a numeric vector
+#' Estimate largest common increment
 #'
-#' @param x A numeric vector
-#' @return A common increment value
-estimate_data_increment <- function(x) {
-  x <- as.numeric(na.omit(x))
+#' Finds the largest grid step shared by gaps between unique values in `x`.
+#'
+#' @param x Numeric vector.
+#' @param max_decimals Integer rounding for gaps.
+#' @param tol Numeric tolerance for zero gaps.
+#' @return Numeric scalar: estimated increment.
+#' @export
+estimate_data_increment <- estimate_data_increment <- function(x, max_decimals = 6L, tol = 1e-8) {
+  x <- as.numeric(x)
+  x <- x[is.finite(x)]
   if (length(x) < 2) return(1)
-  unique_x <- sort(unique(x))
-  diffs <- diff(unique_x)
-  diffs <- diffs[diffs > .Machine$double.eps^0.5]
-  if (length(diffs) == 0) return(1)
-  min_diff <- min(diffs)
-  common_increments <- c(
-    0.0001, 0.0005, 0.001, 0.005, 0.01, 0.02, 0.025, 0.05, 0.1, 0.125, 0.2,
-    0.25, 0.5, 1, 2, 5, 10, 25, 50, 100, 250, 500, 1000
-  )
-  diff_to_common <- abs(min_diff - common_increments)
-  closest_increment <- common_increments[which.min(diff_to_common)]
-  if (abs(min_diff - closest_increment) / min_diff > 0.1 && min_diff < 0.1) {
-    if (closest_increment / min_diff > 2 && closest_increment > 0.01) {
-      return(min_diff)
-    }
-  }
-  return(closest_increment)
+  
+  u <- sort(unique(x))
+  d <- diff(u)
+  d <- d[abs(d) > tol]
+  if (!length(d)) return(1)
+  
+  # tame floating noise and prepare integer scaling
+  d <- round(d, max_decimals)
+  maxd <- max(abs(d))
+  if (!is.finite(maxd) || maxd == 0) return(1)
+  
+  # choose a scale to avoid 32-bit integer overflow
+  p <- max(0L, min(max_decimals,
+                   floor(log10((.Machine$integer.max - 1) / maxd))))
+  scale <- 10^p
+  
+  ints <- as.integer(round(d * scale))
+  ints <- abs(ints[ints != 0L])
+  if (!length(ints)) return(min(d))
+  
+  # integer GCD of all gaps
+  gcd2 <- function(a, b) if (b == 0L) abs(a) else Recall(b, a %% b)
+  g <- Reduce(gcd2, ints)
+  
+  step <- g / scale
+  
+  # Guardrail: if GCD is implausibly tiny vs the smallest observed gap, fall back
+  if (min(d) / step > 1e3) step <- min(d)
+  
+  step
 }
+
 
 #' Generate a grid of simulated datasets matching a real variable
 #'

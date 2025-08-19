@@ -2,16 +2,20 @@
 % Please edit documentation in R/helpers.R
 \name{estimate_data_increment}
 \alias{estimate_data_increment}
-\title{Estimate data increment from a numeric vector}
+\title{Estimate largest common increment}
 \usage{
-estimate_data_increment(x)
+estimate_data_increment(x, max_decimals = 6L, tol = 1e-08)
 }
 \arguments{
-\item{x}{A numeric vector}
+\item{x}{Numeric vector.}
+
+\item{max_decimals}{Integer rounding for gaps.}
+
+\item{tol}{Numeric tolerance for zero gaps.}
 }
 \value{
-A common increment value
+Numeric scalar: estimated increment.
 }
 \description{
-Estimate data increment from a numeric vector
+Finds the largest grid step shared by gaps between unique values in \code{x}.
 }
