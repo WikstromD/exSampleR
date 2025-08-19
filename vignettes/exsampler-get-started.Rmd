@@ -11,11 +11,8 @@ vignette: >
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
-# exsampler: Interactive normality visual inspector
+# exsampler: Normal Simulation Guessing Game
 
-#### **Daniel Wikstrom**
-
-2025-08-17
 
 ## Overview
 
@@ -27,12 +24,12 @@ Users can choose to view plots from an example dataset with labeled distribution
 
 ## Installation
 
-> **Note:** Replace the CRAN line when you publish.
 
 ``` r
-# install.packages("exsampler")  # when on CRAN
-# Development version from GitHub:
-# remotes::install_github("wikstromd/exsampler")
+install.packages("pak") # install 'pak'
+
+pak::pak("WikstromD/exSampleR")
+
 ```
 
 ## Shiny app
