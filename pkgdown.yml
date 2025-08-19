@@ -2,9 +2,9 @@ pandoc: 3.1.11
 pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
-  exSampleR-get-started: exSampleR-get-started.html
+  exsampler-get-started: exsampler-get-started.html
   exsampler-references: exsampler-references.html
-last_built: 2025-08-19T07:34Z
+last_built: 2025-08-19T08:23Z
 urls:
   reference: https://wikstromd.github.io/exsampler/reference
   article: https://wikstromd.github.io/exsampler/articles
