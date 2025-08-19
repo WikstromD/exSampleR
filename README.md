@@ -19,7 +19,6 @@ You can install the development version of exsampler from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("pak")
-pak::pak("WikstromD/exsampler")
+install.packages("WikstromD/exsampler")
 ```
 
