@@ -11,4 +11,4 @@ Plots with simulated normal data help calibrate the user’s eyes for visually i
 
 **Read more:**
 - [Get started](articles/exsampler-get-started.html)
-- [References](articles/exsampler-references.html)s
+- [References](articles/exsampler-references.html)
