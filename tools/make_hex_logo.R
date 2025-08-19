@@ -139,9 +139,9 @@ st <- sticker(
   qq_grid,
   package  = "exsampler",
   p_color  = "#0f172a",
-  p_size   = 36,     # big centered title
+  p_size   = 40,     # big centered title
   p_x      = 1.00,
-  p_y      = 1,   # “shoulders” of the hex
+  p_y      = 1.025,   # “shoulders” of the hex
   h_fill   = "white",
   h_color  = "#0f172a",
   s_width  = 1.58,   # wide grid

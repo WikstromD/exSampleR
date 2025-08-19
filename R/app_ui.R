@@ -1,10 +1,10 @@
-#’ UI for exsampler App
-#’
-#’ This defines the user interface for the exsampler interactive Shiny application.
-#’
-#’ @return A Shiny UI object
-#’ @export
-#’ @import shiny
+#' UI for exsampler App
+#'
+#' This defines the user interface for the exsampler interactive Shiny application.
+#'
+#' @return A Shiny UI object
+#' @export
+#' @import shiny
 app_ui <- function() {
   fluidPage(
     tags$head(

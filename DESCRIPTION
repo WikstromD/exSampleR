@@ -3,7 +3,7 @@ Title: Normal Simulation Guessing Game
 Version: 0.0.1
 Authors@R: 
     person("Daniel", "Wikstrom", , "danwikstrom@gwu.edu", role = c("aut", "cre"))
-Description: An interactive, educational Shiny app where users identify real data among
+Description: An interactive, educational 'shiny' app where users identify real data among
     simulated normal samples.
 License: MIT + file LICENSE
 Depends: 

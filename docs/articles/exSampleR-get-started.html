@@ -34,9 +34,10 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/exsampler-get-started.html">Get started with exsampler</a></li>
-    <li><a class="dropdown-item" href="../articles/exsampler-refrences.html">References</a></li>
+    <li><a class="dropdown-item" href="../articles/exsampler-references.html">References</a></li>
   </ul>
 </li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -80,11 +81,17 @@
 <p>This page provides an overview of the <strong>exsampler</strong>
 package.</p>
 <p><strong>exsampler</strong> is a tool to assist visual inspection of
-(non)normality. It displays a 3×3 grid where one panel contains the real
-data and the others contain simulated normal samples (Shapiro–Wilk
-<em>p</em>’s &lt; 0.1) with the same mean/SD (and optionally the same
-rounding). You choose the variable, plot type, and whether simulations
-should match the original’s granularity.</p>
+(non)normality. It displays a 3×3 grids of either histograms, QQ plots,
+detrended QQ plots, or PP Plots where one randomly assigned plot
+contains the real data and the seven other plots contain simulated
+normal samples (Shapiro–Wilk <em>p</em>’s ≤ 0.05) with the same number
+of observations<em>,</em> mean, and standard deviation (and optionally,
+the same rounding). Plots with simulated normal data help calibrate the
+user’s eyes for visually inspecting the distribution of their data.
+Selecting a plot reveals the location of the real data.</p>
+<p>Users can choose to view plots from an example dataset with labeled
+distributions, or use with their own data already loaded in their global
+environment.</p>
 </div>
 <div class="section level3">
 <h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -100,49 +107,50 @@ should match the original’s granularity.</p>
 <div class="section level3">
 <h3 id="shiny-app">Shiny app<a class="anchor" aria-label="anchor" href="#shiny-app"></a>
 </h3>
-<p>Launch the app in <strong>demo mode</strong> (uses the package’s
-built‑in example data) with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">exsampler</span><span class="fu">::</span><span class="fu"><a href="../reference/run_app.html">run_app</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>That’s it—no setup required.</p>
 </div>
 <div class="section level3">
 <h3 id="what-youll-see">What you’ll see<a class="anchor" aria-label="anchor" href="#what-youll-see"></a>
 </h3>
+<p>When you choose a variable and generate plots, the app displays a
+<strong>3×3</strong> <strong>grid of panels</strong>. One panel contains
+the real data; the rest are simulated normal distributions (Shapiro Wilk
+<em>p</em> &lt; 0.05) with the same number of observations, mean, and
+standard deviation.</p>
 <ul>
 <li>
-<strong>Histogram</strong> – with density and normal overlays.</li>
+<strong>Histogram</strong> – binned frequencies with density and
+normal curves using.</li>
 <li>
-<strong>QQ plot / Detrended QQ plot</strong> – compare sample
-quantiles to a normal reference.</li>
+<strong>QQ plot</strong> – compares sample quantiles to a normal
+reference line using <code>qqplotr</code>.</li>
 <li>
-<strong>PP plot</strong> – compare the empirical CDF to the normal
-CDF.</li>
+<strong>Detrended QQ plot</strong> – compare quantiles’ deviation
+from what’s expected from a normal distribution using
+<code>qqplotr</code>.</li>
 <li>
-<strong>A 3×3</strong> <strong>grid of panels</strong> – one panel
-contains the real data; the rest are simulated normal distributions
-(Shapiro Wilk <em>p</em> &lt; 0.1) with the same mean/SD (and optionally
-the same rounding).</li>
+<strong>PP plot</strong> – plots the proportion of observations at
+or below each value against the proportion predicted by a normal model
+using <code>qqplotr</code>.</li>
 </ul>
 <p>Click <strong>Generate Plots</strong> to create a fresh grid of
 simulations. The sidebar lets you choose the variable, plot type, and
 whether to match simulated data <strong>granularity</strong> (useful for
 integer‑like scales).</p>
-</div>
-<div class="section level3">
-<h3 id="confidence-bands-from-qqplotr">Confidence bands (from <code>{qqplotr}</code>)<a class="anchor" aria-label="anchor" href="#confidence-bands-from-qqplotr"></a>
-</h3>
-<p>By default, <strong>no bands</strong> are shown (keeps the view
-uncluttered). You can toggle bands from the sidebar:</p>
+<div class="section level4">
+<h4 id="confidence-bands">Confidence bands<a class="anchor" aria-label="anchor" href="#confidence-bands"></a>
+</h4>
+<p>Optional 95% confidence bands can be added to both types of QQ plots
+and PP plots. By default, <strong>no bands</strong> are shown. Selecting
+multiple confidence bands increases computing time. The following
+confidence bands are displayed using <code>qqplotr.</code></p>
 <ul>
-<li>
-<strong>QQ plots:</strong> Pointwise, Bootstrap, Tail‑Sensitive
-(TS), or Kolmogorov–Smirnov (KS).</li>
-<li>
-<strong>PP plots:</strong> Pointwise only.</li>
+<li><p><strong>QQ and detrended QQ plots:</strong> Pointwise, Bootstrap,
+Tail‑Sensitive (TS), and/or Kolmogorov–Smirnov (KS).</p></li>
+<li><p><strong>PP plots:</strong> Pointwise only</p></li>
 </ul>
-<p>All QQ and PP plots and their confidence bands are rendered using the
-<strong>{qqplotr}</strong> package (see: <a href="https://aloy.github.io/qqplotr/articles/introduction.html" class="external-link uri">https://aloy.github.io/qqplotr/articles/introduction.html</a>).</p>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
