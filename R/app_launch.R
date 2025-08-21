@@ -1,4 +1,4 @@
-#' Launch the Shiny App
+#' Launches exsampler
 #'
 #' This function launches the exsampler interactive Shiny app.
 #'

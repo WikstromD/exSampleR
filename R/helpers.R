@@ -1,4 +1,4 @@
-#' Scale numeric vector to 1–10
+#' Rescales a numeric vector to 1–10
 #' 
 #' @param x A numeric vector
 #' @return A numeric vector scaled to 1–10
@@ -8,7 +8,6 @@ scale_to_1_10 <- function(x) {
   round(scaled, 2)
 }
 
-#' Scale to 0–10
 #' Rescales a numeric vector to 0–10
 #' 
 #' @param x Numeric vector.
@@ -26,7 +25,7 @@ scale_to_0_10 <- function(x) {
   10 * (x - rng[1]) / diff(rng)
 }
 
-#' Estimate largest common increment
+#' Estimates largest common increment
 #'
 #' Finds the largest grid step shared by gaps between unique values in `x`.
 #'
@@ -72,7 +71,7 @@ estimate_data_increment <- estimate_data_increment <- function(x, max_decimals =
 }
 
 
-#' Generate a grid of simulated datasets matching a real variable
+#' Generates a grid of simulated datasets matching a real variable
 #'
 #' Simulate 7 additional samples from a normal distribution with the
 #' same mean, standard deviation, and (optionally) increment spacing as the

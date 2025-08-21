@@ -1,4 +1,4 @@
-#' Server Logic for exsampler Shiny App
+#' Server logic
 #'
 #' This defines the server-side logic for the exsampler Shiny app.
 #'

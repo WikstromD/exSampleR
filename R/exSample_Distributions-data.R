@@ -1,4 +1,4 @@
-#' exSample_Distributions
+#' A data frame with simulated data
 #'
 #' Simulated distributions scaled to 1–10 for the exsampler demo app.
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/app_launch.R
 \name{run_app}
 \alias{run_app}
-\title{Launch the Shiny App}
+\title{Launches exsampler}
 \usage{
 run_app()
 }

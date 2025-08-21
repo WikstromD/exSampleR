@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{generate_random_data_for_plot_grid}
 \alias{generate_random_data_for_plot_grid}
-\title{Generate a grid of simulated datasets matching a real variable}
+\title{Generates a grid of simulated datasets matching a real variable}
 \usage{
 generate_random_data_for_plot_grid(
   data,

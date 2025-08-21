@@ -2,7 +2,7 @@
 % Please edit documentation in R/distributions.R
 \name{generate_exsample_distributions}
 \alias{generate_exsample_distributions}
-\title{Generate Example Distributions}
+\title{Generates a dataset of example distributions}
 \usage{
 generate_exsample_distributions(n = 1000, seed = 123)
 }

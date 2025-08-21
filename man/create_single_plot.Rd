@@ -2,7 +2,7 @@
 % Please edit documentation in R/plots.R
 \name{create_single_plot}
 \alias{create_single_plot}
-\title{Create Plot from Data}
+\title{Creates plots}
 \usage{
 create_single_plot(df, var, plot_type, bands = NULL, xlim = NULL, ylim = NULL)
 }

@@ -3,7 +3,7 @@
 \docType{data}
 \name{exSample_Distributions}
 \alias{exSample_Distributions}
-\title{exSample_Distributions}
+\title{A data frame with simulated data}
 \format{
 A data frame with simulated columns:
 \describe{

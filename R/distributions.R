@@ -1,4 +1,4 @@
-#' Generate Example Distributions
+#' Generates a dataset of example distributions
 #'
 #' Creates a data frame with various shaped distributions scaled to 1–10.
 #'

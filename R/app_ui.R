@@ -1,4 +1,4 @@
-#' UI for exsampler App
+#' App user interface
 #'
 #' This defines the user interface for the exsampler interactive Shiny application.
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{estimate_data_increment}
 \alias{estimate_data_increment}
-\title{Estimate largest common increment}
+\title{Estimates largest common increment}
 \usage{
 estimate_data_increment(x, max_decimals = 6L, tol = 1e-08)
 }

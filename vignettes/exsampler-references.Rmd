@@ -45,7 +45,7 @@ ChatGPT models **GPT‑4o** and **GPT‑5 Thinking** (OpenAI, 2024; OpenAI, 2025
 
 Allaire, J. J., Xie, Y., Dervieux, C., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., Wickham, H., Cheng, J., Chang, W., & Iannone, R. (2024). rmarkdown: Dynamic Documents for R (Version 2.29) [R package]. <https://github.com/rstudio/rmarkdown>
 
-Almeida, A., Loy, A., & Hofmann, H. (2018). {ggplot2} compatible quantile–quantile plots in R. The R Journal, 10(2), 248–261. <https://doi.org/10.32614/RJ-2018-051>
+Almeida, Loy & Hofmann (2018). ggplot2 Compatible Quantile-Quantile Plots in R. The R Journal, 10(2), 248-261. <https://doi.org/10.32614/RJ-2018-051> 248--261.
 
 Azzalini, A. (2023). The R package sn: The skew-normal and related distributions such as the skew-t and the SUN (Version 2.1.1) [R package]. <http://azzalini.stat.unipd.it/SN/>
 
@@ -55,7 +55,7 @@ Hester, J., & Bryan, J. (2024). glue: Interpreted string literals (Version 1.8.0
 
 Pedersen, T. L. (2025). patchwork: The Composer of Plots (Version 1.3.1) [R package]. <https://doi.org/10.32614/CRAN.package.patchwork>
 
-R Core Team. (2025). R: A language and environment for statistical computing [Computer software]. R Foundation for Statistical Computing. https://www.R-project.org/
+R Core Team. (2025). R: A language and environment for statistical computing [Computer software]. R Foundation for Statistical Computing. <https://www.R-project.org/>
 
 OpenAI. (2024). ChatGPT (GPT-4o, 2024 version) [Large language model]. <https://chatgpt.com/>
 
@@ -66,3 +66,5 @@ Wickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag
 Wickham, H. (2025). testthat: Unit Testing for R (Version 3.2.3) [R package]. <https://testthat.r-lib.org>
 
 Wickham, H., & Henry, L. (2025). purrr: Functional programming tools (Version 1.1.0) [R package]. <https://doi.org/10.32614/CRAN.package.purrr>
+
+Xie Y (2025). \_knitr: A General-Purpose Package for Dynamic Report Generation in R\_. R package version 1.50, <https://yihui.org/knitr/>

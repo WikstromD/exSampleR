@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{scale_to_1_10}
 \alias{scale_to_1_10}
-\title{Scale numeric vector to 1–10}
+\title{Rescales a numeric vector to 1–10}
 \usage{
 scale_to_1_10(x)
 }
@@ -13,5 +13,5 @@ scale_to_1_10(x)
 A numeric vector scaled to 1–10
 }
 \description{
-Scale numeric vector to 1–10
+Rescales a numeric vector to 1–10
 }

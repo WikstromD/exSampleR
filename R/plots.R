@@ -1,4 +1,4 @@
-#' Create Plot from Data
+#' Creates plots
 #'
 #' Generates a single plot of a specified type.
 #'

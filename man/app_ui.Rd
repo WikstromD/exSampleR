@@ -2,7 +2,7 @@
 % Please edit documentation in R/app_ui.R
 \name{app_ui}
 \alias{app_ui}
-\title{UI for exsampler App}
+\title{App user interface}
 \usage{
 app_ui()
 }
