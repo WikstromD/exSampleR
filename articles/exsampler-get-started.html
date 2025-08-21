@@ -78,7 +78,7 @@ package.</p>
 (non)normality. It displays a 3×3 grids of either histograms, QQ plots,
 detrended QQ plots, or PP Plots where one randomly assigned plot
 contains the real data and the seven other plots contain simulated
-normal samples (Shapiro–Wilk <em>p</em>’s ≤ 0.05) with the same number
+normal samples (Shapiro–Wilk <em>p</em>’s ≤ 0.01) with the same number
 of observations<em>,</em> mean, and standard deviation (and optionally,
 the same rounding). Plots with simulated normal data help calibrate the
 user’s eyes for visually inspecting the distribution of their data.
@@ -91,9 +91,9 @@ environment.</p>
 <h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span> <span class="co"># install 'pak'</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"WikstromD/exSampleR"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"WikstromD/exsampler"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="shiny-app">Shiny app<a class="anchor" aria-label="anchor" href="#shiny-app"></a>
@@ -107,41 +107,41 @@ environment.</p>
 <p>When you choose a variable and generate plots, the app displays a
 <strong>3×3</strong> <strong>grid of panels</strong>. One panel contains
 the real data; the rest are simulated normal distributions (Shapiro Wilk
-<em>p</em> &lt; 0.05) with the same number of observations, mean, and
-standard deviation.</p>
+<em>p</em> &lt; 0.01) with the same number of observations, mean, and
+standard deviation. Below is an illustrative example using the variable
+“Heavy_Right_Skew” from the example dataset included with
+<code>exsampler</code>.</p>
 <ul>
 <li>
 <strong>Histogram</strong> – binned frequencies with density and
-normal curves using.</li>
+normal curves using <code>ggplot2.</code>
+</li>
+</ul>
+<p><img src="exsampler-get-started_files/figure-html/unnamed-chunk-4-1.png" width="80%" style="display: block; margin: auto;"></p>
+<ul>
 <li>
 <strong>QQ plot</strong> – compares sample quantiles to a normal
 reference line using <code>qqplotr</code>.</li>
+</ul>
+<p><img src="exsampler-get-started_files/figure-html/unnamed-chunk-5-1.png" width="80%" style="display: block; margin: auto;"></p>
+<ul>
 <li>
 <strong>Detrended QQ plot</strong> – compare quantiles’ deviation
 from what’s expected from a normal distribution using
 <code>qqplotr</code>.</li>
+</ul>
+<p><img src="exsampler-get-started_files/figure-html/unnamed-chunk-6-1.png" width="80%" style="display: block; margin: auto;"></p>
+<ul>
 <li>
 <strong>PP plot</strong> – plots the proportion of observations at
 or below each value against the proportion predicted by a normal model
 using <code>qqplotr</code>.</li>
 </ul>
+<p><img src="exsampler-get-started_files/figure-html/unnamed-chunk-7-1.png" width="80%" style="display: block; margin: auto;"></p>
 <p>Click <strong>Generate Plots</strong> to create a fresh grid of
 simulations. The sidebar lets you choose the variable, plot type, and
 whether to match simulated data <strong>granularity</strong> (useful for
 integer‑like scales).</p>
-<div class="section level4">
-<h4 id="confidence-bands">Confidence bands<a class="anchor" aria-label="anchor" href="#confidence-bands"></a>
-</h4>
-<p>Optional 95% confidence bands can be added to both types of QQ plots
-and PP plots. By default, <strong>no bands</strong> are shown. Selecting
-multiple confidence bands increases computing time. The following
-confidence bands are displayed using <code>qqplotr.</code></p>
-<ul>
-<li><p><strong>QQ and detrended QQ plots:</strong> Pointwise, Bootstrap,
-Tail‑Sensitive (TS), and/or Kolmogorov–Smirnov (KS).</p></li>
-<li><p><strong>PP plots:</strong> Pointwise only</p></li>
-</ul>
-</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
