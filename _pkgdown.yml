@@ -2,3 +2,13 @@ url: https://wikstromd.github.io/exsampler
 template:
   bootstrap: 5
 
+home:
+  sidebar:
+    structure: [links, license, citation, developer, dev]
+    components:
+      developer:
+        title: Developer
+        text: |
+          **Daniel Wikstrom**  
+          *Author, maintainer*  
+          <a href="https://orcid.org/0009-0002-2364-0863">ORCID</a>

@@ -2,7 +2,9 @@ Package: exsampler
 Title: Normal Simulation Guessing Game
 Version: 0.0.1
 Authors@R: 
-    person("Daniel", "Wikstrom", , "danwikstrom@gwu.edu", role = c("aut", "cre"))
+    person("Daniel", "Wikstrom", , "danwikstrom@gwu.edu", 
+    role = c("aut", "cre"),
+    comment = c(ORCID = "0009-0002-2364-0863"))
 Description: An interactive, educational 'shiny' app where users identify real data among
     simulated normal samples.
 License: MIT + file LICENSE

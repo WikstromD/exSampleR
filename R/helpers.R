@@ -107,7 +107,7 @@ generate_random_data_for_plot_grid <- function(
 ) {
   x  <- stats::na.omit(data[[variable_name]])
   mu <- mean(x); sd <- stats::sd(x); N <- length(x)
-  min_x <- min(x); max_x <- max(x)
+  # min_x <- min(x); max_x <- max(x)
   
   # Shapiro–Wilk requires 3 <= n <= 5000 and non-constant data
   shapiro_ok_to_run <- N >= 3 && N <= 5000
@@ -135,7 +135,7 @@ generate_random_data_for_plot_grid <- function(
       if (!is.null(increment) && is.finite(increment) && increment > 0) {
         sim <- round(sim / increment) * increment
       }
-      sim <- pmax(min_x, pmin(max_x, sim))
+      # sim <- pmax(min_x, pmin(max_x, sim))
       
       last_sim <- sim
       
