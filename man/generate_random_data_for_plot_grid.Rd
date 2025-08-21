@@ -10,7 +10,7 @@ generate_random_data_for_plot_grid(
   seed_modifier = 1,
   n = 9,
   match_increment = TRUE,
-  p_thresh = 0.05,
+  p_thresh = 0.01,
   max_attempts = 50
 )
 }
@@ -25,7 +25,7 @@ generate_random_data_for_plot_grid(
 
 \item{match_increment}{Logical; if \code{TRUE}, rounds simulated values to the same increment as the real data (via \code{estimate_data_increment}).}
 
-\item{p_thresh}{Numeric; required Shapiro–Wilk p-value threshold (default 0.05).}
+\item{p_thresh}{Numeric; required Shapiro–Wilk p-value threshold (default 0.01).}
 
 \item{max_attempts}{Integer; max resimulation attempts per simulated sample (default 50).}
 }

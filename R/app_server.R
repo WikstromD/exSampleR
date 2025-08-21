@@ -13,7 +13,7 @@
 #' @importFrom ggplot2 .data
 app_server <- function(input, output, session) {
   
-  # at top of app_server(), keep your all_band_choices
+  #  keep  all_band_choices
   all_band_choices <- list(
     "Pointwise"            = "pointwise",
     "Bootstrap"            = "boot",
@@ -210,9 +210,9 @@ observeEvent(selected_data(), {
       histogram = HTML("
 <div style='font-size:120%;'>
   <p></p>
-  <p><b>Histogram</b> shows how often values fall into each bin, with two overlays:</p>
-  <p>- A dotted curve (kernel density estimate) tracing your data's shape.</p>
-  <p>- A solid bell curve (normal density) showing how a normal distribution would look.</p>
+  <p><b>Histograms</b> shows how often values fall into bins, with two overlays:</p>
+  <p>- The dotted curve (kernel density estimate) tracing your data's shape.</p>
+  <p>- The solid bell curve (normal density) showing how a normal distribution would look.</p>
   <p>Right-skew (positive skewness) produces a long right tail: bars and the density peak left of center.</p>
   <p>Left-skew (negative skewness) produces a long left tail: bars and the density peak right of center.</p>
   <p>Positive kurtosis (heavy tails) produces plots with a higher central peak and higher-density tails.</p>

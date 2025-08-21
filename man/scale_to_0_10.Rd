@@ -3,8 +3,7 @@
 \name{scale_to_0_10}
 \alias{scale_to_0_10}
 \title{Scale to 0–10
-Rescales a numeric vector to \verb{0–10}. NAs are ignored for the range and preserved.
-Zero/non-finite range returns all zeros.}
+Rescales a numeric vector to 0–10}
 \usage{
 scale_to_0_10(x)
 }
@@ -16,6 +15,5 @@ Numeric vector of same length, scaled to \verb{0–10}.
 }
 \description{
 Scale to 0–10
-Rescales a numeric vector to \verb{0–10}. NAs are ignored for the range and preserved.
-Zero/non-finite range returns all zeros.
+Rescales a numeric vector to 0–10
 }

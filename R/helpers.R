@@ -1,17 +1,19 @@
-#' Scale numeric vector to 1–10 and round
-#'
+#' Scale numeric vector to 1–10
+#' 
 #' @param x A numeric vector
 #' @return A numeric vector scaled to 1–10
+#' @export
 scale_to_1_10 <- function(x) {
   scaled <- 1 + 9 * (x - min(x)) / (max(x) - min(x))
   round(scaled, 2)
 }
 
 #' Scale to 0–10
-#' Rescales a numeric vector to `0–10`. NAs are ignored for the range and preserved.
-#' Zero/non-finite range returns all zeros.
+#' Rescales a numeric vector to 0–10
+#' 
 #' @param x Numeric vector.
 #' @return Numeric vector of same length, scaled to `0–10`.
+#' @export
 scale_to_0_10 <- function(x) {
   rng <- range(x, na.rm = TRUE)
   if (!is.finite(diff(rng)) || diff(rng) == 0) return(rep(0, length(x)))
@@ -84,7 +86,7 @@ estimate_data_increment <- estimate_data_increment <- function(x, max_decimals =
 #' @param seed_modifier Integer; seed for `set.seed()`, so each click gives a new shuffle.
 #' @param n Integer; total number of grids (1 real +7).
 #' @param match_increment Logical; if `TRUE`, rounds simulated values to the same increment as the real data (via `estimate_data_increment`).
-#' @param p_thresh Numeric; required Shapiro–Wilk p-value threshold (default 0.05).
+#' @param p_thresh Numeric; required Shapiro–Wilk p-value threshold (default 0.01).
 #' @param max_attempts Integer; max resimulation attempts per simulated sample (default 50).
 #'
 #' @return A list with elements:
@@ -101,11 +103,12 @@ generate_random_data_for_plot_grid <- function(
     seed_modifier = 1,
     n = 9,
     match_increment = TRUE,
-    p_thresh = 0.05,
+    p_thresh = 0.01,
     max_attempts = 50
 ) {
   x  <- stats::na.omit(data[[variable_name]])
   mu <- mean(x); sd <- stats::sd(x); N <- length(x)
+  min_x <- min(x); max_x <- max(x)
   
   # Shapiro–Wilk requires 3 <= n <= 5000 and non-constant data
   shapiro_ok_to_run <- N >= 3 && N <= 5000
@@ -133,6 +136,8 @@ generate_random_data_for_plot_grid <- function(
       if (!is.null(increment) && is.finite(increment) && increment > 0) {
         sim <- round(sim / increment) * increment
       }
+      sim <- pmax(min_x, pmin(max_x, sim))
+      
       last_sim <- sim
       
       pval <- NA_real_
