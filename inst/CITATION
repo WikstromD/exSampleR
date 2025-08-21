@@ -1,0 +1,9 @@
+bibentry(
+  bibtype = "Manual",
+  title   = "exsampler: Normal Simulation Guessing Game",
+  author  = person("Daniel", "Wikstrom", comment = c(ORCID = "0009-0002-2364-0863")),
+  year    = "2025",
+  note    = " (version 0.0.1) [R package]",
+  url     = "https://github.com/WikstromD/exsampler",
+  textVersion = "Wikstrom D (2025). exsampler: Normal Simulation Guessing Game (Version 0.0.1) [R package]. https://github.com/WikstromD/exsampler."
+)
