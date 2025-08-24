@@ -30,6 +30,8 @@ Users can choose to view plots from an example dataset with labeled distribution
 
 ## Installation
 
+First install Rtools from [CRAN](https://cran.r-project.org/bin/windows/Rtools/). Then run the following code:
+
 ```{r eval=FALSE, echo=TRUE}
 install.packages("pak")
 
