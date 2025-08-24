@@ -78,7 +78,7 @@ estimate_data_increment <- estimate_data_increment <- function(x, max_decimals =
 #' real data, then shuffle them together for a “find the real data” grid.
 #'
 #' Ensures each simulated sample passes a Shapiro–Wilk normality test at
-#' p >= `p_thresh` (defaults to 0.05), up to `max_attempts` retries (default = 50).
+#' p > `p_thresh` (defaults to 0.05), up to `max_attempts` retries (default = 50).
 #'
 #' @param data A data.frame containing the real observations.
 #' @param variable_name Character; the name of the numeric column in `data` to simulate from.
@@ -102,7 +102,7 @@ generate_random_data_for_plot_grid <- function(
     seed_modifier = 1,
     n = 9,
     match_increment = TRUE,
-    p_thresh = 0.01,
+    p_thresh = 0.05,
     max_attempts = 50
 ) {
   x  <- stats::na.omit(data[[variable_name]])
@@ -149,7 +149,7 @@ generate_random_data_for_plot_grid <- function(
         best_sim <- sim
       }
       
-      if (!is.na(pval) && pval >= p_thresh) {
+      if (!is.na(pval) && pval > p_thresh) {
         return(sim)  # accept immediately
       }
       # Otherwise loop again

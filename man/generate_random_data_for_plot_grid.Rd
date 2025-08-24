@@ -10,7 +10,7 @@ generate_random_data_for_plot_grid(
   seed_modifier = 1,
   n = 9,
   match_increment = TRUE,
-  p_thresh = 0.01,
+  p_thresh = 0.05,
   max_attempts = 50
 )
 }
@@ -46,5 +46,5 @@ real data, then shuffle them together for a “find the real data” grid.
 }
 \details{
 Ensures each simulated sample passes a Shapiro–Wilk normality test at
-p >= \code{p_thresh} (defaults to 0.05), up to \code{max_attempts} retries (default = 50).
+p > \code{p_thresh} (defaults to 0.05), up to \code{max_attempts} retries (default = 50).
 }
